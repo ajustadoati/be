@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: ${DATASOURCE_URL:jdbc:mysql://localhost:3307/backend}
+    url: ${DATASOURCE_URL:jdbc:mysql://ajustadoati.com:3307/backend}
     username: ${DATASOURCE_USERNAME:xxx}
     password: ${DATASOURCE_PASSWORD:xxx}
     driver-class-name: com.mysql.cj.jdbc.Driver
