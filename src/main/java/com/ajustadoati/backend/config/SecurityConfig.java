@@ -38,6 +38,7 @@ public class SecurityConfig{
         .csrf(csrf -> csrf.disable())
         .authorizeHttpRequests(auth -> auth
             .requestMatchers("/api/auth/**").permitAll()
+            .requestMatchers("/api/searches/**").permitAll()
             .requestMatchers("/api/users/**").hasRole("ADMIN")
             .requestMatchers("/api/categories/**").hasRole("ADMIN")
             .requestMatchers("/api/products/**").hasRole("ADMIN")
@@ -63,6 +64,7 @@ public class SecurityConfig{
   public PasswordEncoder passwordEncoder() {
     return new BCryptPasswordEncoder();
   }
+
 
   @Bean
   public CorsConfigurationSource corsConfigurationSource() {

@@ -33,12 +33,12 @@ public class CategoryService {
         .map(categoryMapper::toDto)
         .toList();
   }
-  public void deleteCategory(Long id) {
+  public void deleteCategory(Integer id) {
     log.info("Deleting category with id: {}", id);
     categoryRepository.deleteById(id);
   }
 
-  public void updateCategory(Long id, CategoryDto categoryDto) {
+  public void updateCategory(Integer id, CategoryDto categoryDto) {
     log.info("Updating category with id: {}", id);
     var category = categoryRepository.findById(id)
         .orElseThrow(() -> new RuntimeException("Category not found with id: " + id));

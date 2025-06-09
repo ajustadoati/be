@@ -33,13 +33,13 @@ public class CategoryController {
 
 
   @DeleteMapping("/{id}")
-  public ResponseEntity<Void> deleteCategory(Long id) {
+  public ResponseEntity<Void> deleteCategory(Integer id) {
     categoryService.deleteCategory(id);
     return ResponseEntity.noContent().build();
   }
 
   @PutMapping("/{id}")
-  public ResponseEntity<Void> updateCategory(Long id, CategoryDto categoryDto) {
+  public ResponseEntity<Void> updateCategory(Integer id, CategoryDto categoryDto) {
     categoryService.updateCategory(id, categoryDto);
     return ResponseEntity.noContent().build();
   }
