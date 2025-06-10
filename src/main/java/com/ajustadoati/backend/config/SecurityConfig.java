@@ -6,6 +6,7 @@ import com.ajustadoati.backend.application.service.CustomUserDetailsService;
 import com.ajustadoati.backend.application.service.JwtTokenProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -39,9 +40,10 @@ public class SecurityConfig{
         .authorizeHttpRequests(auth -> auth
             .requestMatchers("/api/auth/**").permitAll()
             .requestMatchers("/api/searches/**").permitAll()
+            .requestMatchers(HttpMethod.POST, "/api/users/**").permitAll()
+            .requestMatchers(HttpMethod.GET, "/api/categories/**").permitAll()
             .requestMatchers("/api/users/**").hasRole("ADMIN")
             .requestMatchers("/api/categories/**").hasRole("ADMIN")
-            .requestMatchers("/api/products/**").hasRole("ADMIN")
             .requestMatchers("/api/products/**").hasRole("ADMIN")
             .anyRequest().authenticated()
         )
@@ -70,7 +72,7 @@ public class SecurityConfig{
   public CorsConfigurationSource corsConfigurationSource() {
     CorsConfiguration config = new CorsConfiguration();
     config.addAllowedOrigin("http://localhost:4200");
-    config.addAllowedOrigin("https://calch.ajustadoati.com");
+    config.addAllowedOrigin("https://ajustadoati.com");
     config.addAllowedMethod("*");
     config.addAllowedHeader("*");
     config.setAllowCredentials(true);
