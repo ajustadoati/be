@@ -73,6 +73,7 @@ public class SecurityConfig{
     CorsConfiguration config = new CorsConfiguration();
     config.addAllowedOrigin("http://localhost:4200");
     config.addAllowedOrigin("https://ajustadoati.com");
+    config.addAllowedOrigin("http://ajustadoati-local.com");
     config.addAllowedMethod("*");
     config.addAllowedHeader("*");
     config.setAllowCredentials(true);
