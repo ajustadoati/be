@@ -36,7 +36,7 @@ public class UserService {
 
         User user = User.builder()
             .name(dto.getName())
-            .numberId(dto.getNumberId())
+            .username(dto.getNumberId())
             .mobileNumber(dto.getMobileNumber())
             .email(dto.getEmail())
             .password(passwordEncoder.encode(dto.getPassword()))
@@ -77,6 +77,12 @@ public class UserService {
     public UserResponseDto getUserByUserId(Integer userId) {
 
         return userMapper.toDto(userRepository.findById(userId)
+            .orElseThrow(()-> new UserNotFoundException("User Not Found")));
+    }
+
+    public UserResponseDto getUserByUsername(String username) {
+
+        return userMapper.toDto(userRepository.findByUsername(username)
             .orElseThrow(()-> new UserNotFoundException("User Not Found")));
     }
 

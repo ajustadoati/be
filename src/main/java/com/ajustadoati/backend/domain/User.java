@@ -26,7 +26,7 @@ public class User {
 
   private String name;
 
-  private String numberId;
+  private String username;
 
   private String mobileNumber;
 

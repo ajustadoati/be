@@ -30,6 +30,12 @@ public class UserController {
         return new ResponseEntity<>(userService.getUserByUserId(userId), HttpStatus.OK);
     }
 
+    @GetMapping("/{username}/username")
+    public ResponseEntity<UserResponseDto> getUserByUsername(@PathVariable String username){
+
+        return new ResponseEntity<>(userService.getUserByUsername(username), HttpStatus.OK);
+    }
+
     @GetMapping
     public ResponseEntity<List<UserResponseDto>> getAll(){
 
