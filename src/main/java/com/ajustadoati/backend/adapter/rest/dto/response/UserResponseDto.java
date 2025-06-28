@@ -12,7 +12,7 @@ public class UserResponseDto {
     private Integer userId;
     private String name;
     private String email;
-    private String numberId;
+    private String username;
     private String mobileNumber;
     private Instant createdAt;
     private Set<String> roles;
